@@ -1,241 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshay T S | Portfolio</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body{
-            background:#f4f4f4;
-            color:#333;
-            line-height:1.6;
-        }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
 
-        header{
-            background:#111827;
-            color:white;
-            padding:20px 0;
-            position:sticky;
-            top:0;
-        }
+    body{
+      background:#0f172a;
+      color:#fff;
+    }
 
-        nav{
-            width:90%;
-            margin:auto;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-        }
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      background:#111827;
+      z-index:1000;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
 
-        nav ul{
-            list-style:none;
-            display:flex;
-        }
+    .logo{
+      font-size:26px;
+      font-weight:700;
+      color:#38bdf8;
+    }
 
-        nav ul li{
-            margin-left:20px;
-        }
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      transition:.3s;
+    }
 
-        nav ul li a{
-            color:white;
-            text-decoration:none;
-            transition:.3s;
-        }
+    nav a:hover{
+      color:#38bdf8;
+    }
 
-        nav ul li a:hover{
-            color:#38bdf8;
-        }
+    section{
+      padding:100px 8%;
+    }
 
-        .hero{
-            height:90vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            flex-direction:column;
-            text-align:center;
-            background:linear-gradient(135deg,#2563eb,#0f172a);
-            color:white;
-        }
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
 
-        .hero h1{
-            font-size:3rem;
-        }
+    .hero-text{
+      flex:1;
+    }
 
-        .hero p{
-            margin:15px 0;
-            font-size:1.2rem;
-        }
+    .hero h1{
+      font-size:55px;
+      margin-bottom:15px;
+    }
 
-        .btn{
-            padding:12px 25px;
-            background:#38bdf8;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
-        }
+    .hero h2{
+      color:#38bdf8;
+      margin-bottom:20px;
+    }
 
-        section{
-            padding:60px 10%;
-        }
+    .hero p{
+      color:#cbd5e1;
+      max-width:600px;
+      line-height:1.7;
+    }
 
-        h2{
-            text-align:center;
-            margin-bottom:30px;
-        }
+    .btn{
+      display:inline-block;
+      margin-top:30px;
+      padding:14px 28px;
+      background:#38bdf8;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      transition:.3s;
+    }
 
-        .about{
-            text-align:center;
-            max-width:700px;
-            margin:auto;
-        }
+    .btn:hover{
+      background:#0ea5e9;
+      transform:translateY(-3px);
+    }
 
-        .skills{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-            gap:20px;
-        }
+    .profile{
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      border:6px solid #38bdf8;
+      background:#1e293b;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:100px;
+    }
 
-        .skill{
-            background:white;
-            padding:20px;
-            text-align:center;
-            border-radius:8px;
-            box-shadow:0 5px 10px rgba(0,0,0,.1);
-        }
+    h2.title{
+      text-align:center;
+      margin-bottom:40px;
+      color:#38bdf8;
+      font-size:35px;
+    }
 
-        .projects{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:20px;
-        }
+    .about{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      color:#d1d5db;
+      line-height:1.8;
+    }
 
-        .card{
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 5px 15px rgba(0,0,0,.1);
-            transition:.3s;
-        }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
 
-        .card:hover{
-            transform:translateY(-8px);
-        }
+    .card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:15px;
+      transition:.3s;
+      border:1px solid transparent;
+    }
 
-        .contact{
-            text-align:center;
-        }
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#38bdf8;
+    }
 
-        footer{
-            background:#111827;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
+    .card h3{
+      color:#38bdf8;
+      margin-bottom:15px;
+    }
 
-        @media(max-width:768px){
-            nav{
-                flex-direction:column;
-            }
+    footer{
+      background:#111827;
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+    }
 
-            nav ul{
-                margin-top:10px;
-            }
+    @media(max-width:768px){
 
-            .hero h1{
-                font-size:2.2rem;
-            }
-        }
-    </style>
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:10px;
+      }
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+      }
+
+      .hero h1{
+        font-size:40px;
+      }
+
+      .profile{
+        margin-bottom:40px;
+      }
+
+    }
+
+  </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <h2>MyPortfolio</h2>
 
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<div class="logo">Akshay T S</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#certificates">Certificates</a>
+<a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
-    <h1>Hello, I'm Your Name</h1>
-    <p>Web Developer | Designer | Programmer</p>
-    <a href="#projects" class="btn">View My Work</a>
+
+<div class="hero-text">
+
+<h1>Hi, I'm Akshay T S</h1>
+
+<h2>Engineering Student & Aspiring Software Developer</h2>
+
+<p>
+Passionate about building modern web applications, learning new technologies,
+and creating innovative solutions through software development.
+</p>
+
+<a href="#" class="btn">Download Resume</a>
+
+</div>
+
+<div class="profile">
+👨‍💻
+</div>
+
 </section>
 
 <section id="about">
-    <h2>About Me</h2>
 
-    <div class="about">
-        <p>
-            I am a passionate web developer who enjoys creating beautiful,
-            responsive, and user-friendly websites. I love learning new
-            technologies and solving real-world problems through code.
-        </p>
-    </div>
+<h2 class="title">About Me</h2>
+
+<div class="about">
+
+<p>
+I'm an engineering student from Vidya Academy of Science and Technology,
+Thrissur, Kerala. I enjoy learning web development, programming, and working
+on real-world projects. I continuously improve my skills through internships,
+training programs, and certifications.
+</p>
+
+</div>
+
+</section>
+
+<section id="education">
+
+<h2 class="title">Education</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Bachelor of Engineering</h3>
+<p>Vidya Academy of Science and Technology</p>
+<p>Thrissur, Kerala</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="skills">
-    <h2>Skills</h2>
 
-    <div class="skills">
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Python</div>
-        <div class="skill">Java</div>
-    </div>
+<h2 class="title">Skills</h2>
+
+<div class="grid">
+
+<div class="card">HTML5</div>
+<div class="card">CSS3</div>
+<div class="card">JavaScript</div>
+<div class="card">Python</div>
+<div class="card">Java</div>
+<div class="card">C Programming</div>
+<div class="card">SQL</div>
+<div class="card">Git & GitHub</div>
+
+</div>
+
 </section>
 
 <section id="projects">
-    <h2>Projects</h2>
 
-    <div class="projects">
+<h2 class="title">Projects</h2>
 
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <p>A responsive personal portfolio built using HTML, CSS, and JavaScript.</p>
-        </div>
+<div class="grid">
 
-        <div class="card">
-            <h3>Weather App</h3>
-            <p>Weather forecast application using an external API.</p>
-        </div>
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>Responsive portfolio website built using HTML, CSS and JavaScript.</p>
+</div>
 
-        <div class="card">
-            <h3>To-Do App</h3>
-            <p>Task management application with local storage support.</p>
-        </div>
+<div class="card">
+<h3>Student Management System</h3>
+<p>Application to manage student records efficiently.</p>
+</div>
 
-    </div>
+<div class="card">
+<h3>Weather App</h3>
+<p>Weather forecast application using API integration.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="certificates">
+
+<h2 class="title">Certificates</h2>
+
+<div class="grid">
+
+<div class="card">
+Internship Certificate
+</div>
+
+<div class="card">
+Training Certificate
+</div>
+
+<div class="card">
+Codetantra Course Completion
+</div>
+
+</div>
+
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
 
-    <div class="contact">
-        <p>Email: yourname@email.com</p>
-        <p>Phone: +91 98765 43210</p>
-        <p>Location: Your City, India</p>
-    </div>
+<h2 class="title">Contact</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Email</h3>
+<p>your-email@example.com</p>
+</div>
+
+<div class="card">
+<h3>LinkedIn</h3>
+<p>linkedin.com/in/akshay-t-s-487b90382</p>
+</div>
+
+<div class="card">
+<h3>GitHub</h3>
+<p>github.com/yourusername</p>
+</div>
+
+</div>
+
 </section>
 
 <footer>
-    <p>© 2026 Your Name | All Rights Reserved</p>
+
+© 2026 Akshay T S • All Rights Reserved
+
 </footer>
 
 </body>
